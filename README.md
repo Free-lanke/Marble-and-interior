@@ -8,13 +8,16 @@ Live feel: _warm minimalism, natural materials, quiet confidence, honest proport
 
 ## Stack
 
-- **Next.js 14** (App Router, JavaScript)
-- **Tailwind CSS** + design tokens
+- **Next.js 16** (App Router, TypeScript, Turbopack)
+- **React 19** — latest React with new features
+- **TypeScript 5.9** — full type safety
+- **Tailwind CSS** + design tokens (TypeScript config)
 - **shadcn/ui** primitives available
 - **Framer Motion** — scroll reveals, parallax, magnetic buttons, word-by-word text masks
 - **Lenis** — buttery smooth scrolling
 - **Fraunces** (variable serif with SOFT / WONK / opsz axes) + **Inter** for micro text
 - **MongoDB** driver pre-wired (unused for now)
+- **npm** — package manager
 
 ## Features
 
@@ -31,8 +34,8 @@ Live feel: _warm minimalism, natural materials, quiet confidence, honest proport
 ## Getting started
 
 ```bash
-yarn install
-yarn dev
+npm install
+npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
@@ -41,16 +44,16 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ```
 app/
-  api/[[...path]]/route.js   # Catch-all API route (Next.js App Router)
-  layout.js                  # Root layout, Fraunces + Inter fonts
-  page.js                    # Single-page composition (all sections)
+  api/[[...path]]/route.ts   # Catch-all API route (Next.js App Router)
+  layout.tsx                 # Root layout, Fraunces + Inter fonts
+  page.tsx                   # Single-page composition (all sections)
   globals.css                # Design tokens + utilities
 
 components/
-  lenis-provider.jsx         # Smooth scroll context
-  cursor.jsx                 # Custom morphing cursor
-  magnetic.jsx               # Magnetic hover wrapper
-  reveal.jsx                 # FadeUp, WordReveal, ImageReveal
+  lenis-provider.tsx         # Smooth scroll context
+  cursor.tsx                 # Custom morphing cursor
+  magnetic.tsx               # Magnetic hover wrapper
+  reveal.tsx                 # FadeUp, WordReveal, ImageReveal
   ui/                        # shadcn/ui primitives
 
 lib/                         # Utils
