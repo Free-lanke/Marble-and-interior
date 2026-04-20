@@ -30,14 +30,14 @@ export async function OPTIONS() {
 }
 
 interface RouteParams {
-  params: {
+  params: Promise<{
     path?: string[]
-  }
+  }>
 }
 
 // Route handler function
 async function handleRoute(request: NextRequest, { params }: RouteParams) {
-  const { path = [] } = params
+  const { path = [] } = await params
   const route = `/${path.join('/')}`
   const method = request.method
 
