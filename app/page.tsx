@@ -72,19 +72,19 @@ function Nav() {
         className={`fixed top-0 inset-x-0 z-50 transition-colors duration-500 ${scrolled ? 'backdrop-blur-md bg-[#efeae1]/70 border-b border-[#1a1a1a]/10' : ''}`}
       >
         <div className="px-5 md:px-10 py-5 md:py-6 flex items-center justify-between">
-          <a href="#top" className="font-serif text-lg md:text-xl tracking-tight leading-none">
+          <a href="#top" className={`font-serif text-lg md:text-xl tracking-tight leading-none transition-colors duration-500 ${scrolled ? 'text-[#1a1a1a]' : 'text-[#f5f1e8]'}`}>
             My Catchy <span className="italic-serif">Interiors</span>
           </a>
           <nav className="hidden md:flex items-center gap-8 font-sans text-[13px] uppercase tracking-[0.18em]">
             {links.map(([l, h]) => (
-              <a key={l} href={h} data-cursor="\u2192" className="relative group">
+              <a key={l} href={h} data-cursor="\u2192" className={`relative group transition-colors duration-500 ${scrolled ? 'text-[#1a1a1a]' : 'text-[#f5f1e8]'}`}>
                 <span className="inline-block">{l}</span>
-                <span className="absolute left-0 -bottom-1 h-px w-full origin-right scale-x-0 bg-[#1a1a1a] transition-transform duration-500 group-hover:origin-left group-hover:scale-x-100" />
+                <span className={`absolute left-0 -bottom-1 h-px w-full origin-right scale-x-0 transition-transform duration-500 group-hover:origin-left group-hover:scale-x-100 ${scrolled ? 'bg-[#1a1a1a]' : 'bg-[#f5f1e8]'}`} />
               </a>
             ))}
           </nav>
           <Magnetic>
-            <button onClick={() => setOpen(true)} className="font-sans text-[12px] uppercase tracking-[0.2em] border border-[#1a1a1a] rounded-full px-4 md:px-5 py-2 md:py-2.5 hover:bg-[#1a1a1a] hover:text-[#f5f1e8] transition-colors duration-500" data-cursor="Say hi">
+            <button onClick={() => setOpen(true)} className={`font-sans text-[12px] uppercase tracking-[0.2em] border rounded-full px-4 md:px-5 py-2 md:py-2.5 transition-colors duration-500 ${scrolled ? 'border-[#1a1a1a] text-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-[#f5f1e8]' : 'border-[#f5f1e8] text-[#f5f1e8] hover:bg-[#f5f1e8] hover:text-[#1a1a1a]'}`} data-cursor="Say hi">
               <span className="md:hidden">Menu</span>
               <span className="hidden md:inline">Begin a project</span>
             </button>
@@ -174,14 +174,14 @@ function Hero() {
 function Marquee() {
   const words = ['Warmth', 'Proportion', 'Patina', 'Linen', 'Stone', 'Oak', 'Light', 'Restraint', 'Time', 'Slowness']
   return (
-    <section className="py-10 md:py-14 border-y border-[#1a1a1a]/15 overflow-hidden bg-[#efeae1]">
-      <div className="flex marquee whitespace-nowrap">
+    <section className="py-4 md:py-6 border-y border-[#1a1a1a]/15 overflow-hidden bg-[#d0ccc4]">
+      <div className="flex animate-marquee-slow whitespace-nowrap">
         {[...Array(2)].map((_, k) => (
-          <div key={k} className="flex items-center gap-10 md:gap-16 pr-10 md:pr-16">
+          <div key={k} className="flex items-center gap-8 md:gap-12 pr-8 md:pr-12">
             {words.map((w, i) => (
-              <span key={`${k}-${i}`} className="flex items-center gap-10 md:gap-16">
-                <span className={`font-serif text-4xl md:text-6xl tracking-tight ${i % 3 === 1 ? 'italic-serif' : ''}`}>{w}</span>
-                <Plus className="w-4 h-4 opacity-50" />
+              <span key={`${k}-${i}`} className="flex items-center gap-8 md:gap-12">
+                <span className={`font-serif text-xl md:text-3xl lg:text-4xl tracking-tight ${i % 3 === 1 ? 'italic-serif' : ''}`}>{w}</span>
+                <Plus className="w-3 h-3 md:w-4 md:h-4 opacity-50" />
               </span>
             ))}
           </div>
@@ -470,11 +470,11 @@ function Quote() {
   return (
     <section className="py-4 md:py-6 bg-[#1a1a1a] overflow-hidden">
       <div className="flex whitespace-nowrap">
-        <div className="flex animate-marquee">
+        <div className="flex animate-marquee-slow">
           {services.map((service, i) => (
             <div key={i} className="flex items-center">
               <span 
-                className="font-serif text-2xl md:text-4xl lg:text-5xl tracking-tight text-[#efeae1] px-4 md:px-6"
+                className="font-serif text-xl md:text-3xl lg:text-4xl tracking-tight text-[#efeae1] px-3 md:px-5"
                 style={{ 
                   fontFamily: 'var(--font-cormorant), serif',
                   fontStyle: 'italic',
@@ -483,15 +483,15 @@ function Quote() {
               >
                 {service}
               </span>
-              <span className="text-[#efeae1]/40 text-lg md:text-xl">•</span>
+              <span className="text-[#efeae1]/40 text-base md:text-lg">•</span>
             </div>
           ))}
         </div>
-        <div className="flex animate-marquee" aria-hidden="true">
+        <div className="flex animate-marquee-slow" aria-hidden="true">
           {services.map((service, i) => (
             <div key={i} className="flex items-center">
               <span 
-                className="font-serif text-2xl md:text-4xl lg:text-5xl tracking-tight text-[#efeae1] px-4 md:px-6"
+                className="font-serif text-xl md:text-3xl lg:text-4xl tracking-tight text-[#efeae1] px-3 md:px-5"
                 style={{ 
                   fontFamily: 'var(--font-cormorant), serif',
                   fontStyle: 'italic',
@@ -500,7 +500,7 @@ function Quote() {
               >
                 {service}
               </span>
-              <span className="text-[#efeae1]/40 text-lg md:text-xl">•</span>
+              <span className="text-[#efeae1]/40 text-base md:text-lg">•</span>
             </div>
           ))}
         </div>
